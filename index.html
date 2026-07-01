@@ -1,1 +1,85 @@
-index.html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clothing Mockup Generator (Offline)</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="title">🔥 Mockup Generator</div>
+      <div class="subtitle">Upload design → pick product → drag/resize → download PNG</div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="section-title">Canvas</div>
+
+        <div class="canvas-wrap">
+          <canvas id="c" width="1000" height="600" aria-label="mockup-canvas"></canvas>
+        </div>
+
+        <div class="row">
+          <button id="uploadBtn" class="btn">📁 Upload Design</button>
+          <input id="fileInput" type="file" accept="image/*" hidden />
+          <button id="downloadBtn" class="btn primary">⬇️ Download Mockup</button>
+        </div>
+
+        <div class="note">
+          Tip: Best results with <b>transparent PNG</b>. Your output will be an illustrated template (offline).
+        </div>
+      </section>
+
+      <aside class="panel controls">
+        <div class="section-title">Product</div>
+        <div class="grid2">
+          <button class="chip" data-product="tshirt">T-Shirt (Front+Back)</button>
+          <button class="chip" data-product="hoodie">Hoodie (Front+Back)</button>
+          <button class="chip" data-product="joggers">Joggers/Pants (Front+Back)</button>
+          <button class="chip" data-product="hat">Hat (Front Only)</button>
+          <button class="chip" data-product="socks">Socks (Front Only)</button>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="section-title">Design controls</div>
+        <label class="label">
+          Placement mode:
+          <select id="mode">
+            <option value="frontBack">Front + Back in one image</option>
+            <option value="frontOnly">Front only</option>
+          </select>
+        </label>
+
+        <label class="label">
+          Size:
+          <input id="size" type="range" min="40" max="340" value="160" />
+          <span id="sizeVal" class="mono"></span>
+        </label>
+
+        <label class="label">
+          Opacity (if you want):
+          <input id="opacity" type="range" min="20" max="100" value="100" />
+          <span id="opacityVal" class="mono"></span>
+        </label>
+
+        <div class="row" style="margin-top:12px;">
+          <button id="resetBtn" class="btn">↩️ Reset Position</button>
+        </div>
+
+        <div class="help">
+          <b>How to use:</b> drag the design on the canvas to position it.
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      Works offline. Everything runs in your browser.
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+
+
